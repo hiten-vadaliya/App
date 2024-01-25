@@ -6,16 +6,12 @@ jobs:
 
     steps:
       - checkout
-      - run:
-          name: Deploy using key content
-          command: |
-            rm -rf "/home/circleci/project/key.pem"
-            rm -rf "/home/circleci/project/key1.pem"
+      
       # Deploy using the key content
       - run:
           name: Deploy using key content
           command: |
-             echo "$SSH-PRIVATE-KEY-11" | ssh -o "StrictHostKeyChecking no" ubuntu@54.236.166.71 "mkdir -p test12"
+             ssh -o "StrictHostKeyChecking no" ubuntu@54.236.166.71 "mkdir -p test12"
 workflows:
   version: 2
   build_and_deploy:
