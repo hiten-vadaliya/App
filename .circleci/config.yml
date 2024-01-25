@@ -14,6 +14,7 @@ jobs:
             echo "$SSH_PRIVATE_KEY_1" > "$HOME/.ssh/key11.pem"
             chmod 600 "$HOME/.ssh/key11.pem"
             echo "$SSH_PRIVATE_KEY_1"  # Add this line to display the content of the key
+            ls -la /home/circleci/.ssh/
 
             # Add keys to the SSH agent
             eval "$(ssh-agent -s)"
