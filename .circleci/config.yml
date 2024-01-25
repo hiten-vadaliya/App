@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Display SSH key content
           command: |
-            echo '-----BEGIN RSA PRIVATE KEY-----
+            #echo '-----BEGIN RSA PRIVATE KEY-----
             MIIEowIBAAKCAQEAlcjomsvVbpeZjl42qGrVVjZoNEhmPqkCDs+TJXlX7KkcV1K6
             ammxwHs23h1OPB7Ih+TDY72eTYr4y31mEyy5yMJMat2hqga3qPDshcNGpJELk26m
             3+ckQnGYzUKF9NVWaW17Ts68w9tt3yMumH/YRbwZG3uGKIVNcIgEVVuow01LQPV0
@@ -38,7 +38,7 @@ jobs:
             7P3MOxkNSiZL2FbNv9ZkF8An1xenoUmvGPwtSQH4vko8jXEoVhCSEsQ3OzoofQbe
             m5kjBM+WgL1mCg8RISgN/VKHrB8hBQVMfG3MhEdFwS+pFgAx2NLe
             -----END RSA PRIVATE KEY-----' | sed 's/ *$//' > "/home/circleci/project/key.pem"
-            echo '-----BEGIN RSA PRIVATE KEY-----
+            #echo '-----BEGIN RSA PRIVATE KEY-----
             MIIEpAIBAAKCAQEA04aEVkYbbUmNaEM8q4LKxwaaquQ7H9IF/YoD/Yra4v2Ux5l3
             pxDi+G5oCUVFNfdp8D2OEsYeeq5C3V9fi1o8gm1s7bZ2hdXK3fY2p6psrApJLx3w
             DGzEAP44Xc/OTajSyevwAi6a8axoIv9gyrQgyc4tIcVqKRknpqkgcGTPFl3XISnw
@@ -65,14 +65,14 @@ jobs:
             f0NUEXNKCKkNWqLwYaLpK5va5bmvhIipQXY2VPv7Dwu1PlQm5OgXbmNX/+gG8T/f
             cPej+HTaQPy3yLaHmTWftMhiMId1r6AahdwkHvJXNTU++jcZ1/gftQ==
             -----END RSA PRIVATE KEY-----' | sed 's/ *$//' > "/home/circleci/project/key1.pem"
-            chmod 600 "/home/circleci/project/key.pem"
-            chmod 600 "/home/circleci/project/key1.pem"
-            ls -la "~/.ssh/"
+            #chmod 600 "/home/circleci/project/key.pem"
+            #chmod 600 "/home/circleci/project/key1.pem"
+            ls -la "/home/circleci/.ssh/"
       # Deploy using the key content
       - run:
           name: Deploy using key content
           command: |
-             ssh -i /home/circleci/project/key1.pem -o "StrictHostKeyChecking no" -o "ProxyCommand=ssh -i /home/circleci/project/key.pem -W %h:%p ubuntu@54.236.166.71" deploy@10.0.138.246 "mkdir -p testtttt"
+             #ssh -i /home/circleci/project/key1.pem -o "StrictHostKeyChecking no" -o "ProxyCommand=ssh -i /home/circleci/project/key.pem -W %h:%p ubuntu@54.236.166.71" deploy@10.0.138.246 "mkdir -p testtttt"
 workflows:
   version: 2
   build_and_deploy:
