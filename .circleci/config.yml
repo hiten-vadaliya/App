@@ -9,8 +9,8 @@ jobs:
       - run:
           name: Deploy using key content
           command: |
-          rm -rf "/home/circleci/project/key.pem"
-          rm -rf "/home/circleci/project/key1.pem"
+            rm -rf "/home/circleci/project/key.pem"
+            rm -rf "/home/circleci/project/key1.pem"
       # Deploy using the key content
       - run:
           name: Deploy using key content
