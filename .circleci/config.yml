@@ -1,1 +1,25 @@
-
+version: 2.1
+ 
+jobs:
+  deploy:
+    machine: true
+ 
+    steps:
+      - checkout
+ 
+      # Set up SSH keys
+      - run:
+          name: Set up SSH keys
+          command: |
+            echo "$SSH_PRIVATE_KEY_1" > "$HOME/.ssh/key11.pem"
+            chmod 600 "$HOME/.ssh/key11.pem"
+ 
+            # Add keys to the SSH agent
+            eval "$(ssh-agent -s)"
+            ssh-add "$HOME/.ssh/key11.pem"
+ 
+      # Deploy using a specific key
+      - run:
+          name: Deploy using a specific key
+          command: |
+            ssh -o "StrictHostKeyChecking no" -o -i "$HOME/.ssh/key11.pem" "ProxyCommand=ssh -W %h:%p ubuntu@54.236.166.71" "mkdir testtttt"
