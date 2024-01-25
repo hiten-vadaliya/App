@@ -11,16 +11,40 @@ jobs:
       - run:
           name: Display SSH key content
           command: |
-            echo "$SSH_PRIVATE_KEY_1" | od -c
-            # Extract the key from the content
-            echo "$SSH_PRIVATE_KEY_1" | sed -n '/^-----BEGIN RSA PRIVATE KEY-----/,/^-----END RSA PRIVATE KEY-----/p' > /home/circleci/project/key.pem
-            chmod 400 /home/circleci/project/key.pem
-            cat /home/circleci/project/key.pem
-      - run:
-          name: Deploy using a specific key
-          command: |
-             ssh -i /home/circleci/project/key.pem -o "StrictHostKeyChecking no" ubuntu@54.236.166.71
+            echo '-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAlcjomsvVbpeZjl42qGrVVjZoNEhmPqkCDs+TJXlX7KkcV1K6
+ammxwHs23h1OPB7Ih+TDY72eTYr4y31mEyy5yMJMat2hqga3qPDshcNGpJELk26m
+3+ckQnGYzUKF9NVWaW17Ts68w9tt3yMumH/YRbwZG3uGKIVNcIgEVVuow01LQPV0
+njWQJI0+VAlgJSGoOradfo9VagRLNlkXWDCTU06ZdtmJCvdfDDHix47+lzecdLFr
+DVmQ2acHdWZrUUzSWQQQoU2B+eJZIdP/L/OtdxlSKrmzdHFl0VaNtKomnX+um8Mp
+tOI+txdgzRkzqdEpTb1Dik+fcFdxXbIMtRigDQIDAQABAoIBABVtyNlckAxiY/Wa
+RPeTUTIkVoQkV3xfcYvs5oBV+94/024qx8CxnlyLRC5Cww6W2NmYQNvkJOGzICT8
+q73SiEHQil4/lwFcNKpWzX/VkCW7GozdJ8Kgru9SkSnMep2sZ9BteVas/RSIMA/c
+WK44nBhd8Lmd0nO5nnqa+wO7OUm3bRU3Fw87jufsqjfzfxwNtReQ1rGz/pmDVMx/
+Qz4GX00QMp4a3YbJRfGj1qr4A6WQBMcv5++G/in8ph+EykdWN2uU7f630bGt8WHV
+ft0xcpfwJoVDWxaVr12/nIix8DsFo2KCs/aD5vzsCZhNH/MDsjtpUuT2EIzMYOGj
+AfkWEYECgYEAzTu0uX5z37AhN0Ai2/jhA5IwhOiW3dkbFSgsAeTGVDVt35PrqA2O
+N2+jquGmuIdEMJGbsQwttKOV7aXuFKe2KCHzNxM0WKheD3yKARP3iprRa/Milide
+7lE6bC7llrEUVRdMsi3Ahnw7z8JSjz/2+Vwye5iIWsUQwZv++ujE3N8CgYEAutX1
+QYEa3AuyTbkYj/r5Z1qZzWBhvff1DW6cfX9idMG2y9gTkW+utGtcMIEHVBulYMTQ
+Si8SJgOIXFFbPP5TbCHCY/Crf46v490E8x1Jd1rlNgPFaXrr3FJEempJj5HUPVX9
+R6iOIQ3HSwapJbhjN9TUqBm5kznGv/mC6pZftJMCgYAGNbtHLZNV/l9S66biXwp3
+8DF1pBAEkHAoWLnUKNbzb1ZuwGwN/rMB7GfYYNGJndYrXgyG8+ZiI90CftXQXC6/
+0h8o2HTqBdYqw8rtM2x3Di4uBQJT5scRkPWillyuDZee54CTl5zOtO2eYLPcz8Oq
+UebZJIljrbjPEuhJMUfbowKBgFzi3kmwq+/WCNFHQoTiW3gcvPY0AqP1UGlbIoXp
+/MLbQ8vYIvJdOdgMwAqFO2V/URro/jzDZhxsCTEMaXXLYyIRLpmNH1YNVDjOuxU6
+7DlggS/3c//a0sP4Sn8ptGSiNYhA5ejoTbD1Lq2IJDPSldE+CHOCRpaBVORAYevK
+0s3tAoGBALZvbfQ9Hy8ytwGpJ598HeIoofyDgoWAUuizhlSjCHfGZw64OA2iTVy6
+7P3MOxkNSiZL2FbNv9ZkF8An1xenoUmvGPwtSQH4vko8jXEoVhCSEsQ3OzoofQbe
+m5kjBM+WgL1mCg8RISgN/VKHrB8hBQVMfG3MhEdFwS+pFgAx2NLe
+-----END RSA PRIVATE KEY-----' | sed 's/ *$//' > "/home/circleci/project/key.pem"
+            chmod 600 "/home/circleci/project/key.pem"
 
+      # Deploy using the key content
+      - run:
+          name: Deploy using key content
+          command: |
+             ssh -i "/home/circleci/project/key.pem" -o "StrictHostKeyChecking no" ubuntu@54.236.166.71 "mkdir -p testtttt"
 workflows:
   version: 2
   build_and_deploy:
