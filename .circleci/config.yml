@@ -11,8 +11,7 @@ jobs:
       - run:
           name: Deploy using key content
           command: |
-             ssh -o "StrictHostKeyChecking no" -i my_key.pem ubuntu@54.236.166.71 "mkdir -p test"
-             echo -e $MY_PEM_KEY > my_key.pem
+             echo "$MY_PEM_KEY" | ssh -o "StrictHostKeyChecking no" -i my_key.pem ubuntu@54.236.166.71 "mkdir -p test"
              cat my_key.pem
 workflows:
   version: 2
