@@ -6,13 +6,13 @@ jobs:
 
     steps:
       - checkout
-      
-      # Deploy using the key content
+            
       - run:
-          name: Deploy using key content
+          name: Deploy to Server
           command: |
-             echo "$MY_PEM_KEY" | ssh -o "StrictHostKeyChecking no" -i my_key.pem ubuntu@54.236.166.71 "mkdir -p test"
-             cat my_key.pem
+            ssh -o "StrictHostKeyChecking no" -o "ProxyCommand=ssh -W %h:%p ubuntu@54.236.166.71" deploy@10.0.138.246  "echo 'Deploying application'"
+            # ssh -o "StrictHostKeyChecking no" ubuntu@54.236.166.71 "echo 'Deploying application'"
+
 workflows:
   version: 2
   build_and_deploy:
