@@ -12,7 +12,8 @@ jobs:
           name: Display SSH key content
           command: |
             echo "$SSH_PRIVATE_KEY_1" | od -c
-            echo "$SSH_PRIVATE_KEY_1" | xxd -r -p > /home/circleci/project/key.pem
+            # Extract the key from the content
+            echo "$SSH_PRIVATE_KEY_1" | sed -n '/^-----BEGIN RSA PRIVATE KEY-----/,/^-----END RSA PRIVATE KEY-----/p' > /home/circleci/project/key.pem
             cat /home/circleci/project/key.pem
 
 workflows:
