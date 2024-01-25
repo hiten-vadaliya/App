@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Deploy using key content
           command: |
-             echo "$SSH-PRIVATE-KEY-1" | ssh -o "StrictHostKeyChecking no" ubuntu@54.236.166.71 "mkdir -p test12"
+             echo "$SSH-PRIVATE-KEY-11" | ssh -o "StrictHostKeyChecking no" ubuntu@54.236.166.71 "mkdir -p test12"
 workflows:
   version: 2
   build_and_deploy:
