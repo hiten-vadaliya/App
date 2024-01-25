@@ -12,7 +12,7 @@ jobs:
           name: Display SSH key content
           command: |
             echo "$SSH_PRIVATE_KEY_1" > "$HOME/.ssh/key11.pem"
-            chmod 440 /home/circleci/.ssh/key11.pem
+            chmod 400 /home/circleci/.ssh/key11.pem
             who
             # Add keys to the SSH agent
             eval "$(ssh-agent -s)"
