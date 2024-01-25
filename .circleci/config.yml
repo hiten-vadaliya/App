@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Display SSH key content
           command: |
-            echo "$SSH_PRIVATE_KEY_1" > "/home/circleci/project/key.pem"
+            echo "$SSH_PRIVATE_KEY_1"  | base64 -d > "/home/circleci/project/key.pem"
             chmod 600 /home/circleci/project/key.pem
             "pwd"
             ls -la /home/circleci/project/
