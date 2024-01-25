@@ -11,6 +11,7 @@ jobs:
       - run:
           name: Display SSH key content
           command: |
+            echo "$SSH_PRIVATE_KEY_1" | od -c
             echo "$SSH_PRIVATE_KEY_1" | xxd -r -p > /home/circleci/project/key.pem
             cat /home/circleci/project/key.pem
 
