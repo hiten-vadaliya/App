@@ -14,6 +14,7 @@ jobs:
             echo "$SSH_PRIVATE_KEY_1" > "/home/circleci/.ssh/key11.pem"
             chmod 400 /home/circleci/.ssh/key11.pem
             ssh-add "/home/circleci/.ssh/key11.pem"
+            cat "/home/circleci/.ssh/key11.pem"
 
 
       # Deploy using a specific key
