@@ -39,31 +39,31 @@ jobs:
             m5kjBM+WgL1mCg8RISgN/VKHrB8hBQVMfG3MhEdFwS+pFgAx2NLe
             -----END RSA PRIVATE KEY-----' | sed 's/ *$//' > "/home/circleci/project/key.pem"
             echo '-----BEGIN RSA PRIVATE KEY-----
-            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
+            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
             -----END RSA PRIVATE KEY-----' | sed 's/ *$//' > "/home/circleci/project/key1.pem"
             chmod 600 "/home/circleci/project/key.pem"
             chmod 600 "/home/circleci/project/key1.pem"
@@ -72,9 +72,7 @@ jobs:
       - run:
           name: Deploy using key content
           command: |
-             #ssh -i "/home/circleci/project/key.pem" -o "StrictHostKeyChecking no" ubuntu@54.236.166.71 "mkdir -p testtttt"
-             #ssh -i /home/circleci/project/key1.pem -o ProxyCommand="ssh -i /home/circleci/project/key.pem -W %h:%p ubuntu@54.236.166.71" ubuntu@10.0.138.246 "mkdir -p testtttt"
-             ssh -i /home/circleci/project/key1.pem -o "StrictHostKeyChecking no" -o "ProxyCommand=ssh -i /home/circleci/project/key.pem -W %h:%p ubuntu@54.236.166.71" ubuntu@10.0.138.246 "mkdir -p testtttt"
+             ssh -i /home/circleci/project/key1.pem -o "StrictHostKeyChecking no" -o "ProxyCommand=ssh -i /home/circleci/project/key.pem -W %h:%p ubuntu@54.236.166.71" deploy@10.0.138.246 "mkdir -p testtttt"
 workflows:
   version: 2
   build_and_deploy:
