@@ -12,9 +12,7 @@ jobs:
           name: Display SSH key content
           command: |
             echo "$SSH_PRIVATE_KEY_1" > "$HOME/.ssh/key11.pem"
-            chmod 600 "$HOME/.ssh/key11.pem"
-            echo "$SSH_PRIVATE_KEY_1"  # Add this line to display the content of the key
-            ls -la /home/circleci/.ssh/
+            chmod 400 /home/circleci/.ssh/key11.pem
 
             # Add keys to the SSH agent
             eval "$(ssh-agent -s)"
@@ -24,7 +22,7 @@ jobs:
       - run:
           name: Deploy using a specific key
           command: |
-            ssh -o "StrictHostKeyChecking no" -i "$HOME/.ssh/key11.pem" -o "ProxyCommand=ssh -W %h:%p ubuntu@54.236.166.71" "mkdir testtttt"
+            ssh -i /home/circleci/.ssh/key11.pem -o "StrictHostKeyChecking no" -o ubuntu@54.236.166.71
 
 workflows:
   version: 2
