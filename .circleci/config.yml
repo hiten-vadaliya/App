@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Deploy using a specific key
           command: |
-            # ssh -i /home/circleci/key.pem -o "StrictHostKeyChecking no" ubuntu@54.236.166.71
+             ssh -i /home/circleci/key.pem -o "StrictHostKeyChecking no" ubuntu@54.236.166.71
 
 workflows:
   version: 2
