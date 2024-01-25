@@ -12,17 +12,16 @@ jobs:
           name: Display SSH key content
           command: |
             echo "$SSH_PRIVATE_KEY_1" > "/home/circleci/key.pem"
-            chmod 400 /home/circleci/key.pem
-            ssh-add "/home/circleci/key.pem"
+            chmod 600 /home/circleci/key.pem
             ls -la /home/cicleci/
-            cat "/home/circleci/key.pem"
+            cat /home/circleci/key.pem
 
 
       # Deploy using a specific key
       - run:
           name: Deploy using a specific key
           command: |
-            ssh -i /home/circleci/key.pem -o "StrictHostKeyChecking no" ubuntu@54.236.166.71
+            # ssh -i /home/circleci/key.pem -o "StrictHostKeyChecking no" ubuntu@54.236.166.71
 
 workflows:
   version: 2
