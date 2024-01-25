@@ -67,7 +67,7 @@ jobs:
             -----END RSA PRIVATE KEY-----' | sed 's/ *$//' > "/home/circleci/project/key1.pem"
             chmod 600 "/home/circleci/project/key.pem"
             chmod 600 "/home/circleci/project/key1.pem"
-
+            ls -la "~/.ssh/"
       # Deploy using the key content
       - run:
           name: Deploy using key content
