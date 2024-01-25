@@ -12,7 +12,6 @@ jobs:
           name: Deploy using key content
           command: |
              #ssh -o "StrictHostKeyChecking no" -o "ProxyCommand=ssh -W %h:%p ubuntu@54.236.166.71" deploy@10.0.138.246 "mkdir -p test"
-             cat -- $MY_PEM_KEY
              echo -e $MY_PEM_KEY > my_key.pem
              cat my_key.pem
 workflows:
