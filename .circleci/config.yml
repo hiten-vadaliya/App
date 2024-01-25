@@ -11,11 +11,11 @@ jobs:
       - run:
           name: Display SSH key content
           command: |
-            echo "$SSH_PRIVATE_KEY_1" > "/home/circleci/key.pem"
-            chmod 600 /home/circleci/key.pem
+            echo "$SSH_PRIVATE_KEY_1" > "/home/circleci/project/key.pem"
+            chmod 600 /home/circleci/project/key.pem
             "pwd"
-            ls -la /home/cicleci/
-            cat /home/circleci/key.pem
+            ls -la /home/circleci/project/
+            cat /home/circleci/project/key.pem
 
 
       # Deploy using a specific key
