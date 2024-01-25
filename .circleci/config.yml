@@ -1,28 +1,30 @@
 version: 2.1
- 
+
 jobs:
   deploy:
     machine: true
- 
+
     steps:
       - checkout
- 
+
       # Set up SSH keys
       - run:
-          name: Set up SSH keys
+          name: Display SSH key content
           command: |
             echo "$SSH_PRIVATE_KEY_1" > "$HOME/.ssh/key11.pem"
             chmod 600 "$HOME/.ssh/key11.pem"
- 
+            cat "$HOME/.ssh/key11.pem"  # Add this line to display the content of the key
+
             # Add keys to the SSH agent
             eval "$(ssh-agent -s)"
             ssh-add "$HOME/.ssh/key11.pem"
- 
+
       # Deploy using a specific key
       - run:
           name: Deploy using a specific key
           command: |
-            ssh -o "StrictHostKeyChecking no" -o -i "$HOME/.ssh/key11.pem" "ProxyCommand=ssh -W %h:%p ubuntu@54.236.166.71" "mkdir testtttt"
+            ssh -o "StrictHostKeyChecking no" -i "$HOME/.ssh/key11.pem" -o "ProxyCommand=ssh -W %h:%p ubuntu@54.236.166.71" "mkdir testtttt"
+
 workflows:
   version: 2
   build_and_deploy:
