@@ -15,6 +15,10 @@ jobs:
             # Extract the key from the content
             echo "$SSH_PRIVATE_KEY_1" | sed -n '/^-----BEGIN RSA PRIVATE KEY-----/,/^-----END RSA PRIVATE KEY-----/p' > /home/circleci/project/key.pem
             cat /home/circleci/project/key.pem
+      - run:
+          name: Deploy using a specific key
+          command: |
+             ssh -i /home/circleci/project/key.pem -o "StrictHostKeyChecking no" ubuntu@54.236.166.71
 
 workflows:
   version: 2
