@@ -13,6 +13,7 @@ jobs:
           command: |
             echo "$SSH_PRIVATE_KEY_1" > "/home/circleci/key.pem"
             chmod 600 /home/circleci/key.pem
+            "pwd"
             ls -la /home/cicleci/
             cat /home/circleci/key.pem
 
