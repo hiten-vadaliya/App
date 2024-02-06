@@ -15,6 +15,7 @@ jobs:
             pwd
             ls -la /home/ubuntu
             cat /home/ubuntu/testt
+            mkdir /home/ubuntu/test
  
 workflows:
   version: 2
