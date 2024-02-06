@@ -8,11 +8,12 @@ jobs:
     steps:
       - checkout
 
-      # Add a step to print out the hostname
-      - run:
-          name: Print Hostname
-          command: |
-            hostname
+    - run:
+        name: Create Directory
+        command: |
+          hostname
+          mkdir test_directory
+
 
 workflows:
   version: 2
