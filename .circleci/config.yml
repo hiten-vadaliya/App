@@ -13,8 +13,8 @@ jobs:
           command: |
             hostname
             pwd
-            mkdir test_directory
-            ls -la /home/ubuntu 
+            ls -la /home/ubuntu
+            cat /home/ubuntu/testt
  
 workflows:
   version: 2
