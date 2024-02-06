@@ -14,7 +14,8 @@ jobs:
             hostname
             pwd
             mkdir test_directory
-
+            ls -la /home/ubuntu 
+ 
 workflows:
   version: 2
   build_and_deploy:
