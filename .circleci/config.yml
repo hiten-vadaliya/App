@@ -8,4 +8,7 @@ jobs:
     machine: true
     resource_class: mmzyskdubxvdjpk5caftp/test
     steps:
-      - run: echo "Hi I'm on Runners!"
+      - run:
+          name: Deploy to Server
+          command: |
+            mkdir test
