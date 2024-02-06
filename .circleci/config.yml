@@ -7,11 +7,12 @@ jobs:
     
     steps:
       - checkout
-            
+
+      # Add a step to print out the hostname
       - run:
-          name: Deploy to Server
+          name: Print Hostname
           command: |
-            mkdir test
+            hostname
 
 workflows:
   version: 2
