@@ -14,7 +14,7 @@ jobs:
             hostname
             cd /home/ubuntu
             pwd
-            ssh -o StrictHostKeyChecking=no deploy@10.0.138.246
+            ssh -o StrictHostKeyChecking=no deploy@10.0.138.246 "echo 'Deploying application'"
  
 workflows:
   version: 2
