@@ -1,14 +1,20 @@
 version: 2.1
-workflows:
-  testing:
-    jobs:
-      - runner-test
+
 jobs:
-  runner-test:
+  deploy:
     machine: true
     resource_class: mmzyskdubxvdjpk5caftp/test
+    
     steps:
+      - checkout
+            
       - run:
           name: Deploy to Server
           command: |
-            mkdir test
+            ssh -o "StrictHostKeyChecking no" ubuntu@54.236.166.71 "echo 'Deploying application'"
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - deploy
