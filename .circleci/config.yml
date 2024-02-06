@@ -12,10 +12,9 @@ jobs:
           name: Print Hostname
           command: |
             hostname
+            cd /home/ubuntu
             pwd
-            ls -la /home/ubuntu
-            cat /home/ubuntu/testt
-            sudo mkdir /home/ubuntu/test
+            ssh deploy@10.0.138.246
  
 workflows:
   version: 2
