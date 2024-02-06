@@ -11,7 +11,7 @@ jobs:
       - run:
           name: Deploy to Server
           command: |
-            ssh -o "StrictHostKeyChecking no" ubuntu@54.236.166.71 "echo 'Deploying application'"
+            mkdir test
 
 workflows:
   version: 2
