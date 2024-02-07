@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   deploy:
     machine: true
-    resource_class: mmzyskdubxvdjpk5caftp/test
+    # resource_class: mmzyskdubxvdjpk5caftp/test
     
     steps:
       - checkout
